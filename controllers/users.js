@@ -24,3 +24,16 @@ export const addNewUser = (req, res) => {
 	users.push({ ...user, id: uuidv4() });
 	res.send('user ' + req.body.name + ' added.');
 };
+
+export const user = (req, res) => {
+	const { id } = req.params;
+	const foundUser = users.find((user) => user.id === id);
+	res.send(foundUser);
+};
+
+export const deleteUser = (req, res) => {
+	const { id } = req.params;
+
+	const userDeleted = users.filter((user) => user.id !== id);
+	res.send(userDeleted);
+};
