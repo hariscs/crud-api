@@ -4,6 +4,7 @@ import {
 	addNewUser,
 	user,
 	deleteUser,
+	updateUser,
 } from '../controllers/users.js';
 
 const router = express.Router();
@@ -19,5 +20,8 @@ router.get('/:id', user);
 
 // delete user
 router.delete('/:id', deleteUser);
+
+// update user
+router.patch('/:id', updateUser);
 
 export default router;
